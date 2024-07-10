@@ -1,0 +1,58 @@
+import { faker } from '@faker-js/faker';
+
+function newUser() {
+  return {
+    CustomerID: faker.string.uuid(),
+    FirstName: faker.person.firstName().replaceAll('\'', ''),
+    LastName: faker.person.lastName().replaceAll('\'', ''),
+    Email: faker.internet.email(),
+    Phone: faker.phone.number(),
+    AddressLine1: faker.location.streetAddress().replaceAll('\'', ''),
+    AddressLine2: faker.location.buildingNumber(),
+    City: faker.location.city().replaceAll('\'', ''),
+    State: faker.location.state().replaceAll('\'', ''),
+    ZipCode: faker.location.zipCode(),
+    Country: faker.location.country().replaceAll('\'', ''),
+    DateOfBirth: faker.date.birthdate({ min: 18, max: 65, mode: 'age' }).toISOString().split('T')[0],
+    Gender: faker.person.sexType(),
+    PreferredContactMethod: faker.helpers.arrayElement(['Email', 'Phone', 'Mail']),
+    PreferredLanguage: faker.helpers.arrayElement(['English', 'Spanish', 'French', 'German', 'Chinese']),
+    CustomerSince: faker.date.past({ years: 10 }).toISOString().split('T')[0],
+    LastPurchaseDate: faker.date.recent({ days: 30 }).toISOString().split('T')[0],
+    TotalSpent: faker.finance.amount({ min: 100, max: 10000, dec: 2}),
+    LastContactDate: faker.date.recent({ days: 30 }).toISOString().split('T')[0],
+    Notes: faker.lorem.sentence().replaceAll('\'', ''),
+    MarketingOptIn: faker.datatype.boolean(),
+    LoyaltyProgramMember: faker.datatype.boolean(),
+    LoyaltyPoints: faker.number.int({ min: 0, max: 5000 }),
+    ReferredBy: faker.person.firstName().replaceAll('\'', '') + ' ' + faker.person.lastName().replaceAll('\'', ''),
+    ReferredByCode: faker.string.alphanumeric(8).toUpperCase(),
+    AccountManager: faker.person.firstName().replaceAll('\'', '') + ' ' + faker.person.lastName().replaceAll('\'', ''),
+    PreferredStore: faker.company.name().replaceAll('\'', ''),
+    FavoriteProductCategory: faker.commerce.department().replaceAll('\'', ''),
+    LastProductPurchased: faker.commerce.productName().replaceAll('\'', ''),
+    LastProductRating: faker.number.int({ min: 1, max: 5 }),
+    SurveyParticipation: faker.datatype.boolean(),
+    SubscriptionStatus: faker.helpers.arrayElement(['Active', 'Inactive', 'Pending']),
+    SubscriptionStartDate: faker.date.past({ days: 1 }).toISOString().split('T')[0],
+    SubscriptionEndDate: faker.date.future({ days: 1 }).toISOString().split('T')[0],
+    BillingAddressLine1: faker.location.streetAddress().replaceAll('\'', ''),
+    BillingAddressLine2: faker.location.buildingNumber(),
+    BillingCity: faker.location.city().replaceAll('\'', ''),
+    BillingState: faker.location.state().replaceAll('\'', ''),
+    BillingZipCode: faker.location.zipCode(),
+    BillingCountry: faker.location.country().replaceAll('\'', ''),
+    ShippingAddressLine1: faker.location.streetAddress().replaceAll('\'', ''),
+    ShippingAddressLine2: faker.location.buildingNumber().replaceAll('\'', ''),
+    ShippingCity: faker.location.city().replaceAll('\'', ''),
+    ShippingState: faker.location.state().replaceAll('\'', ''),
+    ShippingZipCode: faker.location.zipCode(),
+    ShippingCountry: faker.location.country().replaceAll('\'', ''),
+    PaymentMethod: faker.helpers.arrayElement(['Credit Card', 'Debit Card', 'PayPal', 'Bank Transfer']),
+    CreditLimit: faker.finance.amount({ min: 1000, max: 10000, dec: 2}),
+    AccountStatus: faker.helpers.arrayElement(['Active', 'Inactive', 'Suspended'])
+  };
+}
+
+
+export const users = (count) => faker.helpers.multiple(newUser, { count });

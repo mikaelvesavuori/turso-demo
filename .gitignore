@@ -1,0 +1,28 @@
+# Files
+.dccache
+.DS_Store
+.env
+*.tgz
+*.zip
+
+# Generated files
+/sql/create-data.sql
+
+# Folders
+.aws-sam/
+.esbuild/
+.serverless/
+.temp_coverage/
+.webpack/
+build/
+coverage/
+dist/
+docs/
+generated/
+jest-coverage/
+lib/
+node_modules/
+
+# Diagrams
+diagrams/*.bkp
+diagrams/*.bak

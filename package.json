@@ -1,0 +1,20 @@
+{
+  "name": "turso-demo",
+  "version": "1.0.0",
+  "description": "Demonstration of using Turso for quite large amounts of data",
+  "author": "Mikael Vesavuori",
+  "license": "MIT",
+  "scripts": {
+    "create": "node src/generate.mjs && node src/create.mjs",
+    "get": "node src/get.mjs"
+  },
+  "keywords": [
+    "turso",
+    "demo",
+    "database"
+  ],
+  "dependencies": {
+    "@faker-js/faker": "8",
+    "@libsql/client": "0"
+  }
+}
