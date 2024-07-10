@@ -1,11 +1,12 @@
 import { createClient } from "@libsql/client";
 
-const tableName = 'TODO';
-const orgName = 'TODO';
+const tableName = `TODO`;
+const orgName = `TODO`;
+const authToken = `TODO`;
 
 const config = {
   url: `libsql://${tableName}-${orgName}.turso.io`,
-  authToken: ``
+  authToken
 }
 
 export const turso = createClient(config);
